@@ -1,38 +1,38 @@
-# 90s Cursor Effects
+# 90 年代光标特效
 
-_"Knowing the codes" used to be all the rage, I want to bring a few back._
+_「懂点代码」曾经风靡一时，我想把其中一些带回来。_
 
-A repo of the old effects that inspired creativity and the desire to learn at least a little code around the world. Modernised so they're a little more efficient, and just as annoying (and twice as fun) as they were before. [Have a play here](https://tholman.com/cursor-effects).
+这个仓库收录了那些曾激发全球创意、让人想学点代码的老式特效。经过现代化改造，它们更高效，同样烦人（也更有趣），和当年一样。[在这里玩玩看](https://tholman.com/cursor-effects)。
 
-The current effects are:
+当前包含的特效：
 
-- Rainbow Cursor
-- Emoji Rain
-- Elastic Emoji
-- Ghost Following
-- Trailing Cursor
-- Text Flag Cursor
-- Following Dot
-- Bubbles Particles
-- Snowflake Particles
-- Fairy Dust
-- Clock Cursor
-- Character Cursor
+- Rainbow Cursor（彩虹光标）
+- Emoji Rain（表情雨）
+- Elastic Emoji（弹性表情）
+- Ghost Following（幽灵跟随）
+- Trailing Cursor（拖尾光标）
+- Text Flag Cursor（文字旗帜光标）
+- Following Dot（跟随圆点）
+- Bubbles Particles（气泡粒子）
+- Snowflake Particles（雪花粒子）
+- Fairy Dust（仙女尘）
+- Clock Cursor（时钟光标）
+- Character Cursor（字符光标）
 
-# How to Set Up Locally/Develop
+# 本地搭建 / 开发
 
-1. First the packages request (this is only rollup, which code compilation) with `npm install`
-2. `npm run watch` This will compile the src in the `dist` folder that `index.html` is looking for and update it when changes are made. You can then go to index.html in the web browser of your choice.
+1. 先安装依赖（只有 rollup，用于代码编译）：`npm install`
+2. 运行 `npm run watch`。这会把 `src` 编译到 `index.html` 所引用的 `dist` 文件夹，并在文件变更时自动更新。然后在任意浏览器中打开 `index.html` 即可。
 
-# How to Use
+# 使用方法
 
-You need to include the following script tag in your webpage (see next section if you want to use this package via npm). And then, once the script is loaded you'll be able to add the effects to the page
+在网页中加入以下 script 标签（若要通过 npm 使用本包，见下一节）。脚本加载完成后，即可在页面上添加特效。
 
 ```html
 <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
 ```
 
-Alternatively you can use a `type="module"` script on newer browsers with a import statement, if you are using the esm module you will import the cursor specific to your needs, rather than having to use the `cursoreffects.x` style.
+较新的浏览器也可以使用 `type="module"` 脚本配合 import 语句。若使用 ESM 模块，可按需导入具体光标效果，而不必使用 `cursoreffects.x` 这种写法。
 
 ```html
 <script type="module">
@@ -42,7 +42,7 @@ Alternatively you can use a `type="module"` script on newer browsers with a impo
 </script>
 ```
 
-And then create a new instance of its type in your JavaScript. The script will create the canvas that is used, so nothing else is really needed.
+然后在 JavaScript 中创建对应类型的实例。脚本会自动创建所需 canvas，一般无需其他配置。
 
 ```js
 window.addEventListener("load", (event) => {
@@ -50,24 +50,24 @@ window.addEventListener("load", (event) => {
 });
 ```
 
-You can also target specific elements, to have the canvas appear inside those, for example:
+也可以指定特定元素，让 canvas 出现在该元素内部，例如：
 
 ```js
 const targetElement = document.querySelector("#ghost");
 new cursoreffects.ghostCursor({ element: targetElement });
 ```
 
-To remove the effect, you can call `destroy` on it.
+若要移除特效，可调用 `destroy` 方法。
 
 ```js
-// Create
+// 创建
 let cursorEffect = new ghostCursor();
 
-// Destroy
+// 销毁
 cursorEffect.destroy();
 ```
 
-### or you can use NPM
+### 或通过 NPM 使用
 
 ```sh
 npm install cursor-effects
@@ -78,13 +78,13 @@ import { emojiCursor } from "cursor-effects";
 new emojiCursor({ emoji: ["🔥", "🐬", "🦆"] });
 ```
 
-## Specific Customization
+## 自定义选项
 
-A few of these have custom options as well (if you are interested in more options, opening an issue or PR is the way to go).
+部分特效支持自定义配置（如需更多选项，欢迎提 issue 或 PR）。
 
 ### ghostCursor
 
-You can change the cursor image in `ghostCursor`
+可在 `ghostCursor` 中更换光标图片。
 
 ```js
   new cursoreffects.ghostCursor(
@@ -95,7 +95,7 @@ You can change the cursor image in `ghostCursor`
 
 ### rainbowCursor
 
-You can change the colors, size and length in `rainbowCursor`
+可在 `rainbowCursor` 中调整颜色、大小和长度。
 
 ```js
 new cursoreffects.rainbowCursor({
@@ -107,7 +107,7 @@ new cursoreffects.rainbowCursor({
 
 ### springyEmojiCursor
 
-You can change the emoji in `springyEmojiCursor`'s emoji with the `emoji` a single string emoji.
+可在 `springyEmojiCursor` 中通过 `emoji` 选项（单个 emoji 字符串）更换表情。
 
 ```js
 new cursoreffects.springyEmojiCursor({ emoji: "🤷‍♂️" });
@@ -115,7 +115,7 @@ new cursoreffects.springyEmojiCursor({ emoji: "🤷‍♂️" });
 
 ### bubbleCursor
 
-You can change the fill and stroke/border of the bubbles in `bubbleCursor` with the `fillColor` & `strokeColor` options
+可在 `bubbleCursor` 中通过 `fillColor` 和 `strokeColor` 选项调整气泡填充色与描边/边框颜色。
 
 ```js
 new cursoreffects.bubbleCursor({
@@ -126,7 +126,7 @@ new cursoreffects.bubbleCursor({
 
 ### fairyDustCursor
 
-You can customize the `fairyDustCursor` by using the `fairySymbol` option to change the emoji, and the `colors` option (an array) to define its trail colors.
+可通过 `fairySymbol` 选项更换 emoji，通过 `colors` 选项（数组）定义拖尾颜色，来自定义 `fairyDustCursor`。
 
 ```js
 new cursoreffects.fairyDustCursor({
@@ -137,8 +137,7 @@ new cursoreffects.fairyDustCursor({
 
 ### emojiCursor
 
-You can change the emoji in `emojiCursor`'s emoji with the `emoji` option (a list of emoji),
-and delay between emoji with the `delay` option (defaults to `16`)
+可通过 `emoji` 选项（emoji 列表）更换表情，通过 `delay` 选项调整表情出现间隔（默认 `16`）。
 
 ```js
 new cursoreffects.emojiCursor({ emoji: ["🔥", "🐬", "🦆"], delay: 25 });
@@ -146,20 +145,19 @@ new cursoreffects.emojiCursor({ emoji: ["🔥", "🐬", "🦆"], delay: 25 });
 
 ### textFlag
 
-You can change the `textFlag`'s text with the `text` option (String),
-and color of the text with the `color` option (hex)
+可通过 `text` 选项（字符串）更换 `textFlag` 的文字，通过 `color` 选项（十六进制）更换文字颜色。
 
 ```js
 new textFlag({ text: "test", color: ["#FF6800"] });
 ```
 
-## Accessibility
+## 无障碍
 
-The cursor won't display if the user's system accessibility settings have [prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) enabled.
+若用户系统开启了 [prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) 无障碍设置，光标特效将不会显示。
 
 ### trailingCursor
 
-You can change the number of trail steps in `trailingCursor` with the `particles` option (a number), the rate of the trail with the `rate` option (a number between 0 and 1, default is `0.4`), and the trailing cursor image with the `baseImageSrc` option (a URL or base64 string)
+可通过 `particles` 选项（数字）调整 `trailingCursor` 的拖尾步数，通过 `rate` 选项（0 到 1 之间的数字，默认 `0.4`）调整拖尾速率，通过 `baseImageSrc` 选项（URL 或 base64 字符串）更换拖尾光标图片。
 
 ```js
 new cursoreffects.trailingCursor({
@@ -169,7 +167,7 @@ new cursoreffects.trailingCursor({
 });
 ```
 
-You can change the color of the following dot in `followingDotCursor` with the `color` option (hex)
+可通过 `color` 选项（十六进制）调整 `followingDotCursor` 跟随圆点的颜色。
 
 ```js
 new cursoreffects.followingDotCursor({ color: ["#323232a6"] });
@@ -177,7 +175,7 @@ new cursoreffects.followingDotCursor({ color: ["#323232a6"] });
 
 ### characterCursor
 
-Consider this cursor as an extension of the snowflake cursor, but instead of the snowflake emoji you can specify a list of characters and colors to use as well as defining how the character's velocity, rotation and scaling should change over the characters lifespan. For example to produce the same effect you see in the demo page, you would use this. (It will also do this by default, but this is a great way to experiement and play around with the effect)
+可把它看作雪花光标的扩展：不用雪花 emoji，而是指定字符列表和颜色，并定义字符在生命周期内速度、旋转和缩放的变化方式。例如，要复现演示页上的效果，可以这样写。（默认也会如此，但这是试验和玩转该效果的好方式。）
 
 ```js
 new cursoreffects.characterCursor({
@@ -214,9 +212,8 @@ new cursoreffects.characterCursor({
 });
 ```
 
-Note that none of these behavior changing options are required but in that case it will use similar physics to the snowflake and use the asterisk character instead.
+注意：这些行为相关的选项都不是必需的；若不提供，将使用与雪花类似的物理效果，并以星号字符代替。
 
-# License
+# 许可证
 
-MIT af, but if you're using the scripts a [GitHub sponsorship](https://github.com/sponsors/tholman) or [shouting me a coffee](https://www.buymeacoffee.com/tholman) would always be appreciated :)
-
+MIT。若你在使用这些脚本，欢迎 [GitHub 赞助](https://github.com/sponsors/tholman) 或 [请我喝杯咖啡](https://www.buymeacoffee.com/tholman) :)
